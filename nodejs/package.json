@@ -1,0 +1,27 @@
+{
+  "name": "gre-word-list-101",
+  "version": "1.0.0",
+  "description": "An app to get GRE words in Random Order to improve Vocabulary.",
+  "main": "fetchWordList.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jay0512/GREWordList-Node.git"
+  },
+  "keywords": [
+    "Nodejs"
+  ],
+  "author": "Jay Patel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jay0512/GREWordList-Node/issues"
+  },
+  "homepage": "https://github.com/jay0512/GREWordList-Node#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "google-spreadsheet": "^3.0.13",
+    "googleapis": "^39.2.0"
+  }
+}
