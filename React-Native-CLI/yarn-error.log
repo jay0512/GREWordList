@@ -1,0 +1,56 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add react-native-safe-area-view react-native-safe-area-context
+
+PATH: 
+  C:\Python27\;C:\Python27\Scripts;C:\Python38\Scripts\;C:\Python38\;D:\developer\software\product\11.2.0\client_1\bin;C:\app\quicko\product\11.2.0\dbhome_1\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\TortoiseGit\bin;C:\Program Files\OpenJDK\openjdk-8u262-b10\bin;D:\developer\software\apache-maven-3.6.2\bin;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\gradle-6.2.1\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\Users\quicko\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\quicko\AppData\Local\Microsoft\WindowsApps;C:\Users\quicko\AppData\Local\GitHubDesktop\bin;C:\Users\quicko\AppData\Roaming\npm;C:\Users\quicko\AppData\Local\Android\Sdk\platform-tools;C:\Users\quicko\AppData\Local\Yarn\bin
+
+Yarn version: 
+  1.22.5
+
+Node version: 
+  14.13.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EPERM: operation not permitted, unlink 'C:\Users\quicko\Documents\GRE_WORDLIST\node_modules\@istanbuljs\load-nyc-config\node_modules\resolve-from'
+
+npm manifest: 
+  {
+    "name": "GRE_WORDLIST",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+      "android": "react-native run-android",
+      "ios": "react-native run-ios",
+      "start": "react-native start",
+      "test": "jest",
+      "lint": "eslint ."
+    },
+    "dependencies": {
+      "@react-navigation/native": "^5.7.6",
+      "@react-navigation/stack": "^5.9.3",
+      "react": "16.13.1",
+      "react-native": "0.63.3"
+    },
+    "devDependencies": {
+      "@babel/core": "^7.8.4",
+      "@babel/runtime": "^7.8.4",
+      "@react-native-community/eslint-config": "^1.1.0",
+      "babel-jest": "^25.1.0",
+      "eslint": "^6.5.1",
+      "jest": "^25.1.0",
+      "metro-react-native-babel-preset": "^0.59.0",
+      "react-test-renderer": "16.13.1"
+    },
+    "jest": {
+      "preset": "react-native"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
