@@ -33,7 +33,7 @@ export default class GREWordListComponent extends React.Component {
 
       wordView.push(
         <TouchableOpacity key={word['SrNo']}
-          onPress={() => navigation.push("WordDetailsScreen")}
+          onPress={() => this.props.navigation.navigate('Details', { word: JSON.stringify(word) })}
         >
           <View style={styles.getStartedContainer}>
             <Text style={styles.rootWordStyle}>
@@ -50,11 +50,7 @@ export default class GREWordListComponent extends React.Component {
     });
 
     return (
-      <View style={{ marginBottom: 64 }}>
-        <Text style={styles.title}>
-          GRE Words List
-        </Text>
-        <Divider style={{ height: 1, backgroundColor: '#dddddd' }} />
+      <View style={{ marginTop: 12 }}>
         <ScrollView>
           {wordView}
         </ScrollView>
@@ -82,7 +78,8 @@ const styles = StyleSheet.create({
   },
   getStartedContainer: {
     alignItems: 'flex-start',
-    marginTop: 16,
+    marginTop: 8,
+    marginBottom: 8,
     marginLeft: 16,
     marginRight: 16,
     padding: 16,

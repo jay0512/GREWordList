@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { Button } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import axios from 'axios';
-import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
-import { Divider } from 'react-native-elements';
 import Swiper from 'react-native-swiper'
 
 const url = "https://gre-word-list-101.herokuapp.com/words";
@@ -11,7 +11,8 @@ const url = "https://gre-word-list-101.herokuapp.com/words";
 export default class PracticeComponent extends React.Component {
 
   state = {
-    wordList: []
+    wordList: [],
+    startswiper: false,
   }
 
   componentDidMount() {
@@ -19,11 +20,11 @@ export default class PracticeComponent extends React.Component {
       .then(res => {
         const wordList = res.data;
         this.setState({ wordList });
+        this.setState({ startswiper: true });
       }).catch(error => console.log(error));
   }
 
-  render() {
-
+  _renderSwiper() {
     const { wordList } = this.state;
 
     var wordView = [];
@@ -32,21 +33,70 @@ export default class PracticeComponent extends React.Component {
       if ((i % 3) == 0) {
         wordView.push(
           <View key={word['SrNo']} style={styles.slide1}>
-            <Text style={styles.text}>{word['Word']}</Text>
+            <View style={styles.slideContainer}>
+              <Text style={styles.text}>{word['Word']}</Text>
+            </View>
+            <Button
+              title="Explore Word"
+              type="clear"
+              iconRight
+              icon={
+                <Icon
+                  name="arrow-right"
+                  size={15}
+                  color="#2089dc"
+                />
+              }
+              titleStyle={{ marginRight: 4 }}
+              onPress={() => this.props.navigation.navigate('Details', { word: JSON.stringify(word) })}
+            />
           </View>
+
         );
       }
       else if ((i % 3) == 1) {
         wordView.push(
           <View key={word['SrNo']} style={styles.slide2}>
-            <Text style={styles.text}>{word['Word']}</Text>
+            <View style={styles.slideContainer}>
+              <Text style={styles.text}>{word['Word']}</Text>
+            </View>
+            <Button
+              title="Explore Word"
+              type="clear"
+              iconRight
+              icon={
+                <Icon
+                  name="arrow-right"
+                  size={15}
+                  color="#2089dc"
+                />
+              }
+              titleStyle={{ marginRight: 4 }}
+              onPress={() => this.props.navigation.navigate('Details', { word: JSON.stringify(word) })}
+            />
           </View>
         );
       }
       else {
         wordView.push(
           <View key={word['SrNo']} style={styles.slide3}>
-            <Text style={styles.text}>{word['Word']}</Text>
+            <View style={styles.slideContainer}>
+              <Text style={styles.text}>{word['Word']}</Text>
+            </View>
+            <Button
+              title="Explore Word"
+              type="clear"
+              iconRight
+              icon={
+                <Icon
+                  name="arrow-right"
+                  size={15}
+                  color="#2089dc"
+                />
+              }
+              titleStyle={{ marginRight: 4 }}
+              onPress={() => this.props.navigation.navigate('Details', { word: JSON.stringify(word) })}
+            />
           </View>
         );
       }
@@ -54,9 +104,27 @@ export default class PracticeComponent extends React.Component {
     });
 
     return (
-      <Swiper style={styles.wrapper} showsButtons={true} loop={true}>
+      <Swiper style={styles.wrapper} showsButtons={true}>
         {wordView}
       </Swiper>
+    );
+  }
+
+  _renderLoading() {
+    return (
+      <View style={styles.loading}>
+        <Text style={styles.title}>
+          Loading...
+      </Text>
+      </View>
+    );
+  }
+
+  render() {
+    const { startswiper } = this.state;
+
+    return (
+      startswiper === true ? this._renderSwiper() : this._renderLoading()
     );
   }
 }
@@ -72,9 +140,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     margin: 16,
     fontWeight: 'bold',
-  },
-  wrapper: {
-
   },
   slide1: {
     flex: 1,
@@ -97,7 +162,17 @@ const styles = StyleSheet.create({
   text: {
     color: '#fff',
     fontSize: 30,
-    fontWeight: 'bold'
-  }
+    fontWeight: 'bold',
+  },
+  slideContainer: {
+    flex: 0.8,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loading: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
 
 });
